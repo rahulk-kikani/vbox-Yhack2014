@@ -45,6 +45,7 @@ $route['brand/(.*)'] = 'welcome/brandINFO/$1';
 $route['show/(.*)'] = 'welcome/showINFO/$1';
 
 $route['all-show'] = 'welcome/allshow';
+$route['all-episodes'] = 'welcome/allepisode';
 $route['episode/(.*)'] = 'welcome/episodeINFO/$1';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

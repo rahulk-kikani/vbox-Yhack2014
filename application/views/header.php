@@ -6,10 +6,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <meta name="author" content="Rahul K Kikani">
+    
+    <?php
+        if(isset($title))
+        {
+            ?>
+            <meta name="description" content='<?php echo $desc;?>'/>
+            <title><?php echo $title;?></title>
+            <meta property="og:site_name" content="Viacom Box"/>
+            <meta property="og:url" content="http://cscbanking.com/vbox"/>
+            <meta property="og:title" content='<?php echo $title;?>'/>
+            <meta property="og:disctiption" content='<?php echo $desc;?>'/>
+            <meta property="og:image" content="<?php echo $img;?>"/>
+            <?php
+        }
+        else{
+            ?>
+                <title>Viacom Box</title>
+            <?php
+        }
+    ?>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>theme/css/bootstrap.css" rel="stylesheet">
@@ -52,7 +69,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html" style="text-align: center; width: 250px;">
+                <a class="navbar-brand" href="<?php echo base_url();?>" style="text-align: center; width: 250px;">
                     <img src="<?php echo base_url();?>theme/img/vbox_logo.png" style="height: 34px;"/>
                 </a>
             </div>
@@ -65,7 +82,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url();?>all-show">
+                    <a href="<?php echo base_url();?>all-episodes">
                          ALL EPISODES
                     </a>
                 </li>
@@ -76,14 +93,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
+                            <label>Channel</label>
                             <!-- /input-group -->
                         </li>
                         <?php
@@ -94,7 +104,7 @@
                             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                             $result= curl_exec ($ch);
                             $result = json_decode($result);
-                            //rint_r($result);
+                            //print_r($result);
                             curl_close ($ch);
                             if(isset($result->response)){
                                 foreach($result->response->Brands as $row){

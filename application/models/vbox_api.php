@@ -80,6 +80,23 @@ class Vbox_api extends CI_Model {
                 }
     }
     
+    function get_allepisode_info(){
+                $ch = curl_init();
+                $url = "http://api.viacom.com/v12/episodes?apiKey=vT4Aq18ANEmQFPZI4jxFpJFypuGrwmVK";
+                curl_setopt($ch, CURLOPT_URL,$url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $result= curl_exec ($ch);
+                $result = json_decode($result);
+                curl_close ($ch);
+                if(isset($result->response)){
+                    if(count($result->response->Episodes) > 0){
+                        return $result->response->Episodes;
+                    }
+                } else{
+                    return 0;
+                }
+    }
+    
     function get_episodes_by_show($showId){
         if($showId != "")
         {

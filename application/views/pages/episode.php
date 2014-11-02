@@ -43,12 +43,20 @@ if(isset($show_info))
                                     <hr />
                                     <div>
                                         <?php
-                                            echo '<strong>Episode Number: </strong>'.$show_info->EpisodeNumber;
+                                            if(isset($show_info->EpisodeNumber) && $show_info->EpisodeNumber != ""){
+                                                echo '<strong>Episode Number: </strong>'.$show_info->EpisodeNumber;
+                                            }else{
+                                                echo '<strong>Episode Number: </strong> NA';
+                                            }
                                         ?>
                                     </div>
                                     <div>
                                         <?php
-                                            echo '<strong>Website Link: </strong><a href="'.$show_info->urls->url.'" target="_blank" /> Link</a>';
+                                            if(isset($show_info->urls->url) && $show_info->urls->url != ""){
+                                                echo '<strong>Website Link: </strong><a href="'.$show_info->urls->url.'" target="_blank" /> Link</a>';
+                                            }else{
+                                                echo '<strong>Website Link: </strong>NA</a>';
+                                            }
                                         ?>
                                     </div>
                                 </div>
