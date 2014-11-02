@@ -9,7 +9,7 @@ if(isset($brand_info))
 }
 ?>
         <div id="page-wrapper">
-            <div class="row" style="padding-top: 100px; ;background: url('<?php echo base_url();?>theme/img/free-love-wallpaper-17441-18173-hd-wallpapers.jpg');">
+            <div class="row" style="padding-top: 100px;background: url('<?php echo base_url();?>theme/img/Background6.png');">
                 <div class="col-lg-12">
                     <h1 class="page-header"><?php echo $title;?>
                         <?php 
@@ -64,13 +64,19 @@ if(isset($brand_info))
                                                             if(isset($img->ImageAssetRefs)){
                                                                 $thumb = $img->ImageAssetRefs[0]->URI;
                                                                 $thumb = str_replace('http://mtv.mtvnimages.com/uri',"",$thumb);
+                                                                $thumb = "http://mtv.mtvnimages.com/uri".$thumb;
                                                             } else if(isset($img->URL)){
                                                                 $thumb = $img->URL;
                                                                 $thumb = str_replace('http://mtv.mtvnimages.com/uri',"",$thumb);
+                                                                $thumb = "http://mtv.mtvnimages.com/uri".$thumb;
+                                                            } else{
+                                                                $thumb = "http://mtv.mtvnimages.com/images/lyricsmode-mtv_100x100.jpg";
                                                             }
+                                                    } else{
+                                                        $thumb = "http://mtv.mtvnimages.com/images/lyricsmode-mtv_100x100.jpg";
                                                     }
                                                     
-                                                    echo '      <td><img style="width: 100px;float:left;" src="'.base_url().'timthumb.php?src=http://mtv.mtvnimages.com/uri'.$thumb.'&w=100&h=80"/> <div style="float: left;padding: 0px 10px;"> <a href="'.base_url().'show/'.$row->shortId.'" class="show_title">'.$row->Title.'</a><br />
+                                                    echo '      <td><img style="width: 100px;float:left;" src="'.base_url().'timthumb.php?src='.$thumb.'&w=100&h=80"/> <div style="float: left;padding: 0px 10px;"> <a href="'.base_url().'show/'.$row->shortId.'" class="show_title">'.$row->Title.'</a><br />
                                                                 <a style="color: #777;" href="'.$row->urls->url.'" target="_blank">External Website</a></div></td>';
                                                     echo '</tr>';
                                                     $i++;

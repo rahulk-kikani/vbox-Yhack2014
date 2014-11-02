@@ -7,7 +7,7 @@ if(isset($show_info))
 }
 ?>
         <div id="page-wrapper">
-            <div class="row" style="padding-top: 100px; ;background: url('<?php echo base_url();?>theme/img/free-love-wallpaper-17441-18173-hd-wallpapers.jpg');">
+            <div class="row" style="padding-top: 100px;background: url('<?php echo base_url();?>theme/img/Background4.png');">
                 <div class="col-lg-12">
                     <h1 class="page-header"><?php echo $title;?>
                         <div style="float: right;">

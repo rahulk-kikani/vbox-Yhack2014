@@ -12,12 +12,12 @@
         if(isset($title))
         {
             ?>
-            <meta name="description" content='<?php echo $desc;?>'/>
+            <meta name="description" content="<?php echo $desc;?>"/>
             <title><?php echo $title;?></title>
             <meta property="og:site_name" content="Viacom Box"/>
-            <meta property="og:url" content="http://cscbanking.com/vbox"/>
-            <meta property="og:title" content='<?php echo $title;?>'/>
-            <meta property="og:disctiption" content='<?php echo $desc;?>'/>
+            <meta property="og:url" content="<?php echo $link;?>"/>
+            <meta property="og:title" content="<?php echo $title;?>"/>
+            <meta property="og:disctiption" content="<?php echo $desc;?>"/>
             <meta property="og:image" content="<?php echo $img;?>"/>
             <?php
         }

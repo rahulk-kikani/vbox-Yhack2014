@@ -12,6 +12,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url();?>theme/js/sb-admin-2.js"></script>
+<span>Background : <a href="http://www.psdking.eu/548/15-free-blurred-backgrounds.html" target="_blank">Link</a></span>
+ <span>Theme : <a href="http://startbootstrap.com/template-overviews/sb-admin-2/" target="_blank">Link</a></span>
 </body>
-
 </html>

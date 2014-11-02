@@ -28,6 +28,7 @@ class Welcome extends CI_Controller {
 	   $data['page'] = "home";
        $data['title'] = "Viacom Box";
        $data['desc'] = "Viacom Box";
+       $data['link'] = base_url();
        $data['img'] = base_url()."theme/img/vbox_logo.png";
 		$this->load->view('template',$data);
 	}
@@ -38,7 +39,9 @@ class Welcome extends CI_Controller {
         $tempx = $this->vbox_api->get_show_info_byBrand($brand);
         if($temp != 0){
             $data['brand_info'] = $temp[0];
-            $data['title'] =  $temp[0]->Title." | Brand - Viacom Box";
+            $temp_title = str_replace("'","",$temp[0]->Title);
+            $temp_title = str_replace('"','',$temp[0]->Title);
+            $data['title'] =  $temp_title." | Brand - Viacom Box";
             $data['desc'] = "No Description | Brand - Viacom Box";
             $data['img'] = base_url()."theme/img/vbox_logo.png";
         }else{
@@ -46,7 +49,7 @@ class Welcome extends CI_Controller {
             $data['desc'] = "No Description | Brand - Viacom Box";
             $data['img'] = base_url()."theme/img/vbox_logo.png";
         }
-        
+        $data['link'] = base_url()."brand/".$brand;
         if($tempx != 0){
             $data['brand_show_list'] = $tempx;
         }
@@ -62,7 +65,8 @@ class Welcome extends CI_Controller {
             $data['title'] = "All Shows - Viacom Box";
             $data['desc'] = "All Shows - Viacom Box";
             $data['img'] = base_url()."theme/img/vbox_logo.png";
- 
+
+        $data['link'] = base_url()."all-show";
         $this->load->view('template',$data);
     }
     
@@ -76,6 +80,7 @@ class Welcome extends CI_Controller {
             $data['title'] = "All Episodes - Viacom Box";
             $data['desc'] = "All Episodes - Viacom Box";
             $data['img'] = base_url()."theme/img/vbox_logo.png";
+        $data['link'] = base_url()."all-episodes";
         $this->load->view('template',$data);
     }
     
@@ -84,8 +89,10 @@ class Welcome extends CI_Controller {
         $temp = $this->vbox_api->get_showDetail($showId);
         if($temp != 0){
             $data['show_info'] = $temp[0];
+            $temp_title = str_replace("'","",$temp[0]->Title);
+            $temp_title = str_replace('"','',$temp[0]->Title);
             
-            $data['title'] = $temp[0]->Title." | Show - Viacom Box";
+            $data['title'] = $temp_title." | Show - Viacom Box";
             if(isset($temp[0]->Description))
                 $data['desc'] = trim($temp[0]->Description)." | Show - Viacom Box";
             else
@@ -111,6 +118,7 @@ class Welcome extends CI_Controller {
         if($temp != 0){
             $data['episode_list'] = $tempx;
         }
+        $data['link'] = base_url()."show/".$showId;
         $this->load->view('template',$data);
     }
     
@@ -119,7 +127,10 @@ class Welcome extends CI_Controller {
         $temp = $this->vbox_api->get_episodeDetail($episodeId);
         if($temp != 0){
             $data['show_info'] = $temp[0];
-            $data['title'] = $temp[0]->Title." | Episode - Viacom Box";
+            $temp_title = str_replace("'","",$temp[0]->Title);
+            $temp_title = str_replace('"','',$temp[0]->Title);
+            
+            $data['title'] = $temp_title." | Episode - Viacom Box";
             if(isset($temp[0]->Description))
                 $data['desc'] = trim($temp[0]->Description)." | Episode - Viacom Box";
             else
@@ -141,6 +152,7 @@ class Welcome extends CI_Controller {
             $data['desc'] = "Episode - Viacom Box";
             $data['img'] = base_url()."theme/img/vbox_logo.png";
         }
+        $data['link'] = base_url()."episode/".$episodeId;
         $this->load->view('template',$data);
     }
 }

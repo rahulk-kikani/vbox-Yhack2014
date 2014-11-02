@@ -9,7 +9,7 @@ if(isset($show_info))
 }
 ?>
         <div id="page-wrapper">
-            <div class="row" style="padding-top: 100px; ;background: url('<?php echo base_url();?>theme/img/free-love-wallpaper-17441-18173-hd-wallpapers.jpg');">
+            <div class="row" style="padding-top: 100px;background: url('<?php echo base_url();?>theme/img/Background8.png');">
                 <div class="col-lg-12">
                     <h1 class="page-header"><?php echo $title;?>
                         <?php 
@@ -71,9 +71,11 @@ if(isset($show_info))
                                                             $thumb = $img->URL;
                                                             $thumb = str_replace('http://mtv.mtvnimages.com/uri',"",$thumb);
                                                             echo '<td><img style="width: 100px;float: left;" src="'.base_url().'timthumb.php?src=http://mtv.mtvnimages.com/uri'.$thumb.'&w=100&h=80"/>';
+                                                        } else {
+                                                            echo '     <td><img style="width: 100px;float: left;" src="'.base_url().'timthumb.php?src=http://mtv.mtvnimages.com/images/lyricsmode-mtv_100x100.jpg&w=100&h=80"/>';
                                                         }
                                                 } else{
-                                                    echo '     <td><img style="width: 100px;float: left;" src="'.base_url().'timthumb.php?src=http://mtv.mtvnimages.com/uri/'.$thumb.'&w=100&h=80"/>';
+                                                    echo '     <td><img style="width: 100px;float: left;" src="'.base_url().'timthumb.php?src=http://mtv.mtvnimages.com/images/lyricsmode-mtv_100x100.jpg&w=100&h=80"/>';
                                                 }
                                                 
                                                 echo '<div style="float: left;padding: 0px 10px;"> <a href="'.base_url().'episode/'.$row->shortId.'" class="show_title">'.$row->Title.'</a><br />';
