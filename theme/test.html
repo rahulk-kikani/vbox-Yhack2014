@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body>
+<div ng-app="" ng-controller="customersController"> 
+
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
+  </tr>
+</table>
+
+</div>
+<script src="js/jquery.js"></script>
+<script>
+$(function () {
+                        $.ajax({
+                        contentType: 'application/json',
+                        data: JSON.stringify({})
+                        ,
+                        dataType: 'json',
+                        success: function(data){
+                            console.log(data);
+                        },
+                        error: function(data){
+                            alert("Server Connction error!");                   
+                        },
+                        processData: false,
+                        type: 'GET',
+                        url: 'http://api.viacom.com/v12/brands?apiKey=vT4Aq18ANEmQFPZI4jxFpJFypuGrwmVK'
+                        });
+                    });
+</script>
+</body>
+</html>
